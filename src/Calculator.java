@@ -19,12 +19,9 @@ public class Calculator extends JFrame {
     private JButton no3;
     private JButton divide;
     private JButton no0;
-    private JButton pie;
-    private JButton dot;
     private JButton multiply;
     private JButton AC;
     private JButton equal;
-    private JButton positivenegative;
 
     public Calculator() {
 
