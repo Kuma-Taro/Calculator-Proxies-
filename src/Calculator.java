@@ -37,8 +37,9 @@ public class Calculator extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
 
+        //Loop through all buttons and add an action performed
         for (JButton button : buttons) {
-            System.out.println(button.getText());
+            //System.out.println(button.getText());
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
@@ -47,7 +48,7 @@ public class Calculator extends JFrame {
             });
         }
 
-        // Adding ActionListener to buttons
+        // Set Output to Empty when AC
         AC.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
