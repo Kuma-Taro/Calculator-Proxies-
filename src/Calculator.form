@@ -20,6 +20,7 @@
         <properties>
           <background color="-10263709"/>
           <borderPainted value="true"/>
+          <font size="24"/>
           <foreground color="-1"/>
           <margin top="0" left="0" bottom="0" right="0"/>
           <text value="7"/>
@@ -35,6 +36,7 @@
         <properties>
           <background color="-10263709"/>
           <borderPainted value="true"/>
+          <font size="24"/>
           <foreground color="-1"/>
           <text value="8"/>
         </properties>
@@ -49,6 +51,7 @@
         <properties>
           <background color="-10263709"/>
           <borderPainted value="true"/>
+          <font size="24"/>
           <foreground color="-1"/>
           <text value="9"/>
         </properties>
@@ -63,6 +66,7 @@
         <properties>
           <background color="-10263709"/>
           <borderPainted value="true"/>
+          <font size="24"/>
           <foreground color="-1"/>
           <text value="4"/>
         </properties>
@@ -77,6 +81,7 @@
         <properties>
           <background color="-10263709"/>
           <borderPainted value="true"/>
+          <font size="24"/>
           <foreground color="-1"/>
           <text value="5"/>
         </properties>
@@ -91,6 +96,7 @@
         <properties>
           <background color="-10263709"/>
           <borderPainted value="true"/>
+          <font size="24"/>
           <foreground color="-1"/>
           <text value="6"/>
         </properties>
@@ -105,7 +111,8 @@
         <properties>
           <background color="-20480"/>
           <borderPainted value="true"/>
-          <foreground color="-517"/>
+          <font size="24"/>
+          <foreground color="-11381159"/>
           <text value="-"/>
         </properties>
       </component>
@@ -119,6 +126,7 @@
         <properties>
           <background color="-10263709"/>
           <borderPainted value="true"/>
+          <font size="24"/>
           <foreground color="-1"/>
           <text value="1"/>
         </properties>
@@ -133,6 +141,7 @@
         <properties>
           <background color="-10263709"/>
           <borderPainted value="true"/>
+          <font size="24"/>
           <foreground color="-1"/>
           <text value="2"/>
         </properties>
@@ -147,6 +156,7 @@
         <properties>
           <background color="-10263709"/>
           <borderPainted value="true"/>
+          <font size="24"/>
           <foreground color="-1"/>
           <text value="3"/>
         </properties>
@@ -161,6 +171,7 @@
         <properties>
           <background color="-10263709"/>
           <borderPainted value="true"/>
+          <font size="24"/>
           <foreground color="-1"/>
           <text value="0"/>
         </properties>
@@ -175,6 +186,7 @@
         <properties>
           <background color="-4408132"/>
           <borderPainted value="false"/>
+          <font size="24"/>
           <foreground color="-16777216"/>
           <hideActionText value="true"/>
           <text value="AC"/>
@@ -190,7 +202,8 @@
         </constraints>
         <properties>
           <background color="-16777216"/>
-          <foreground color="-16777216"/>
+          <font size="24"/>
+          <foreground color="-1"/>
           <selectedTextColor color="-517"/>
         </properties>
       </component>
@@ -204,7 +217,8 @@
         <properties>
           <background color="-20480"/>
           <borderPainted value="true"/>
-          <foreground color="-1"/>
+          <font size="24"/>
+          <foreground color="-11381159"/>
           <text value="+"/>
         </properties>
       </component>
@@ -218,7 +232,8 @@
         <properties>
           <background color="-20480"/>
           <borderPainted value="true"/>
-          <foreground color="-1"/>
+          <font size="24"/>
+          <foreground color="-11381159"/>
           <text value="x"/>
         </properties>
       </component>
@@ -232,6 +247,7 @@
         <properties>
           <background color="-4408132"/>
           <borderPainted value="true"/>
+          <font size="24"/>
           <foreground color="-16777216"/>
           <text value="π"/>
         </properties>
@@ -246,7 +262,8 @@
         <properties>
           <background color="-20480"/>
           <borderPainted value="true"/>
-          <foreground color="-1"/>
+          <font size="24"/>
+          <foreground color="-11381159"/>
           <text value="/"/>
         </properties>
       </component>
@@ -260,6 +277,7 @@
         <properties>
           <background color="-4408132"/>
           <borderPainted value="true"/>
+          <font size="24"/>
           <foreground color="-16777216"/>
           <text value="+/-"/>
         </properties>
@@ -274,7 +292,8 @@
         <properties>
           <background color="-20480"/>
           <borderPainted value="true"/>
-          <foreground color="-517"/>
+          <font size="24"/>
+          <foreground color="-11381159"/>
           <text value="="/>
         </properties>
       </component>
@@ -288,6 +307,7 @@
         <properties>
           <background color="-10263709"/>
           <borderPainted value="true"/>
+          <font size="24"/>
           <foreground color="-517"/>
           <text value="."/>
         </properties>

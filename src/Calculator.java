@@ -3,6 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Calculator extends JFrame {
+    //Private UI elements
     private JPanel Calculator;
     private JTextField Output;
     private JButton no7;
@@ -31,17 +32,19 @@ public class Calculator extends JFrame {
         setTitle("Calculator");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setSize(400, 600);
-        setMinimumSize(new java.awt.Dimension(300, 400));
+        setMinimumSize(new java.awt.Dimension(400, 500));
         setLocationRelativeTo(null);
         setVisible(true);
 
-        // Adding ActionListener to no1 button
+        // Adding ActionListener to buttons
         no1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Output.setText(Output.getText() + "1");
             }
         });
+
+
     }
 
     public static void main(String[] args) {
