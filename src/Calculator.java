@@ -29,6 +29,7 @@ public class Calculator extends JFrame {
 
     private String firstOperand = "";
     private String operator = "";
+    private Boolean new_calculation = false;
 
     public Calculator() {
         setContentPane(Calculator);
@@ -46,11 +47,16 @@ public class Calculator extends JFrame {
                 public void actionPerformed(ActionEvent e) {
                     if (Output.getText().equals("0")) {
                         Output.setText(button.getText());
+                        new_calculation = false;
                     }  else if (Output.getText().equals("Error")) {
                         Output.setText(button.getText());
-                    }
-                    else {
+                        new_calculation = false;
+                    } else if (new_calculation == true) {
+                        Output.setText(button.getText());
+                        new_calculation = false;
+                    } else {
                         Output.setText(Output.getText() + button.getText());
+                        new_calculation = false;
                     }
                 }
             });
@@ -63,6 +69,7 @@ public class Calculator extends JFrame {
                 Output.setText("0");
                 firstOperand = "";
                 operator = "";
+                new_calculation = true;
             }
         });
 
@@ -90,10 +97,11 @@ public class Calculator extends JFrame {
                     String input = Output.getText();
 
                     // Evaluate the expression
-                    int result = evaluateExpression(input);
+                    double result = evaluateExpression(input);
 
                     // Set the result back to the JTextField
                     Output.setText(String.valueOf(result));
+                    new_calculation = true;
                 } catch (Exception ex) {
                     Output.setText("Error");
                 }
@@ -101,8 +109,8 @@ public class Calculator extends JFrame {
         });
     }
 
-    private int evaluateExpression(String input) {
-        int result = 0;
+    private double evaluateExpression(String input) {
+        double result = 0;
         char operator = ' ';
         StringBuilder number = new StringBuilder();
 
@@ -111,10 +119,10 @@ public class Calculator extends JFrame {
                 number.append(ch);
             } else {
                 if (operator != ' ') {
-                    result = applyOperation(result, Integer.parseInt(number.toString()), operator);
+                    result = applyOperation(result, Double.parseDouble(number.toString()), operator);
                     number.setLength(0); // Clear the number
                 } else {
-                    result = Integer.parseInt(number.toString());
+                    result = Double.parseDouble(number.toString());
                     number.setLength(0); // Clear the number
                 }
                 operator = ch;
@@ -123,13 +131,13 @@ public class Calculator extends JFrame {
 
         // Apply the last operation
         if (operator != ' ') {
-            result = applyOperation(result, Integer.parseInt(number.toString()), operator);
+            result = applyOperation(result, Double.parseDouble(number.toString()), operator);
         }
 
         return result;
     }
 
-    private int applyOperation(int a, int b, char operator) {
+    private double applyOperation(double a, double b, char operator) {
         switch (operator) {
             case '+':
                 return a + b;
