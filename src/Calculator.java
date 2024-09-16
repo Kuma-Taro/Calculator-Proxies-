@@ -25,7 +25,7 @@ public class Calculator extends JFrame {
     private JButton AC;
     private JButton equal;
 
-    private JButton[] buttons = {no0, no1, no2, no3, no4, no5, no6, no7, no8, no9};
+    private JButton[] buttons = {no0, no1, no2, no3, no4, no5, no6, no7, no8, no9, plus, minus, divide, multiply};
 
     private String firstOperand = "";
     private String operator = "";
@@ -44,11 +44,7 @@ public class Calculator extends JFrame {
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    if (Output.getText().equals("0")) {
-                        Output.setText(button.getText());
-                    } else {
-                        Output.setText(Output.getText() + button.getText());
-                    }
+                    Output.setText(Output.getText() + button.getText());
                 }
             });
         }
@@ -69,7 +65,7 @@ public class Calculator extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 firstOperand = Output.getText();
                 operator = ((JButton) e.getSource()).getText();
-                Output.setText("0");
+                //Output.setText("0");
             }
         };
 
@@ -82,35 +78,29 @@ public class Calculator extends JFrame {
         equal.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String secondOperand = Output.getText();
-                double result = 0;
+                try {
+                    // Get the input from the JTextField
+                    String input = Output.getText();
 
-                switch (operator) {
-                    case "+":
-                        result = Double.parseDouble(firstOperand) + Double.parseDouble(secondOperand);
-                        break;
-                    case "-":
-                        result = Double.parseDouble(firstOperand) - Double.parseDouble(secondOperand);
-                        break;
-                    case "*":
-                        result = Double.parseDouble(firstOperand) * Double.parseDouble(secondOperand);
-                        break;
-                    case "/":
-                        result = Double.parseDouble(firstOperand) / Double.parseDouble(secondOperand);
-                        break;
-                }
+                    // Evaluate the expression
+                    int result = evaluateExpression(input);
 
-                // Check if the result is a whole number
-                if (result == (int) result) {
-                    Output.setText(String.valueOf((int) result));
-                } else {
+                    // Set the result back to the JTextField
                     Output.setText(String.valueOf(result));
+                } catch (Exception ex) {
+                    Output.setText("Error");
                 }
-
-                firstOperand = "";
-                operator = "";
             }
         });
+    }
+
+    private int evaluateExpression(String input) {
+        int result = 0;
+        String[] tokens = input.split("\\+");
+        for (String token : tokens) {
+            result += Integer.parseInt(token.trim());
+        }
+        return result;
     }
 
     public static void main(String[] args) {
