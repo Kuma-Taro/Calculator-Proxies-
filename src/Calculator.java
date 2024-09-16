@@ -53,7 +53,7 @@ public class Calculator extends JFrame {
         AC.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                Output.setText("0");
+                //Output.setText("0");
                 firstOperand = "";
                 operator = "";
             }
@@ -96,11 +96,48 @@ public class Calculator extends JFrame {
 
     private int evaluateExpression(String input) {
         int result = 0;
-        String[] tokens = input.split("\\+");
-        for (String token : tokens) {
-            result += Integer.parseInt(token.trim());
+        char operator = ' ';
+        StringBuilder number = new StringBuilder();
+
+        for (char ch : input.toCharArray()) {
+            if (Character.isDigit(ch)) {
+                number.append(ch);
+            } else {
+                if (operator != ' ') {
+                    result = applyOperation(result, Integer.parseInt(number.toString()), operator);
+                    number.setLength(0); // Clear the number
+                } else {
+                    result = Integer.parseInt(number.toString());
+                    number.setLength(0); // Clear the number
+                }
+                operator = ch;
+            }
         }
+
+        // Apply the last operation
+        if (operator != ' ') {
+            result = applyOperation(result, Integer.parseInt(number.toString()), operator);
+        }
+
         return result;
+    }
+
+    private int applyOperation(int a, int b, char operator) {
+        switch (operator) {
+            case '+':
+                return a + b;
+            case '-':
+                return a - b;
+            case '*':
+                return a * b;
+            case '/':
+                if (b == 0) {
+                    throw new ArithmeticException("Division by zero");
+                }
+                return a / b;
+            default:
+                throw new IllegalArgumentException("Unsupported operator: " + operator);
+        }
     }
 
     public static void main(String[] args) {
