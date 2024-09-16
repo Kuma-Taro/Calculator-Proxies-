@@ -44,7 +44,11 @@ public class Calculator extends JFrame {
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    Output.setText(Output.getText() + button.getText());
+                    if (Output.getText().equals("0")) {
+                        Output.setText(button.getText());
+                    } else {
+                        Output.setText(Output.getText() + button.getText());
+                    }
                 }
             });
         }
@@ -53,7 +57,7 @@ public class Calculator extends JFrame {
         AC.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //Output.setText("0");
+                Output.setText("0");
                 firstOperand = "";
                 operator = "";
             }
