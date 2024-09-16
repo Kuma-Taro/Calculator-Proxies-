@@ -164,7 +164,7 @@
       </component>
       <component id="d2689" class="javax.swing.JTextField" binding="Output">
         <constraints>
-          <grid row="0" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+          <grid row="0" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="6" anchor="0" fill="1" indent="0" use-parent-layout="false">
             <minimum-size width="-1" height="50"/>
             <preferred-size width="-1" height="50"/>
             <maximum-size width="-1" height="50"/>
@@ -174,6 +174,7 @@
           <background color="-16777216"/>
           <font size="24"/>
           <foreground color="-1"/>
+          <horizontalAlignment value="4"/>
           <selectedTextColor color="-517"/>
         </properties>
       </component>
