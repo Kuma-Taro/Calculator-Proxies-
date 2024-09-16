@@ -46,7 +46,10 @@ public class Calculator extends JFrame {
                 public void actionPerformed(ActionEvent e) {
                     if (Output.getText().equals("0")) {
                         Output.setText(button.getText());
-                    } else {
+                    }  else if (Output.getText().equals("Error")) {
+                        Output.setText(button.getText());
+                    }
+                    else {
                         Output.setText(Output.getText() + button.getText());
                     }
                 }
