@@ -3,7 +3,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class Calculator extends JFrame {
-    //Private UI elements
+    // Private UI elements
     private JPanel Calculator;
     private JTextField Output;
     private JButton no0;
@@ -27,8 +27,10 @@ public class Calculator extends JFrame {
 
     private JButton[] buttons = {no0, no1, no2, no3, no4, no5, no6, no7, no8, no9};
 
-    public Calculator() {
+    private String firstOperand = "";
+    private String operator = "";
 
+    public Calculator() {
         setContentPane(Calculator);
         setTitle("Calculator");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
@@ -37,14 +39,12 @@ public class Calculator extends JFrame {
         setLocationRelativeTo(null);
         setVisible(true);
 
-        //Loop through all buttons and add an action performed
+        // Loop through all buttons and add an action performed
         for (JButton button : buttons) {
-            //System.out.println(button.getText());
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
                     if (Output.getText().equals("0")) {
-                        System.out.print("test");
                         Output.setText(button.getText());
                     } else {
                         Output.setText(Output.getText() + button.getText());
@@ -58,10 +58,61 @@ public class Calculator extends JFrame {
             @Override
             public void actionPerformed(ActionEvent e) {
                 Output.setText("0");
+                firstOperand = "";
+                operator = "";
             }
         });
 
+        // Add ActionListener for operators
+        ActionListener operatorListener = new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                firstOperand = Output.getText();
+                operator = ((JButton) e.getSource()).getText();
+                Output.setText("0");
+            }
+        };
+
+        plus.addActionListener(operatorListener);
+        minus.addActionListener(operatorListener);
+        multiply.addActionListener(operatorListener);
+        divide.addActionListener(operatorListener);
+
+        // Add ActionListener for equal button
+        equal.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String secondOperand = Output.getText();
+                double result = 0;
+
+                switch (operator) {
+                    case "+":
+                        result = Double.parseDouble(firstOperand) + Double.parseDouble(secondOperand);
+                        break;
+                    case "-":
+                        result = Double.parseDouble(firstOperand) - Double.parseDouble(secondOperand);
+                        break;
+                    case "*":
+                        result = Double.parseDouble(firstOperand) * Double.parseDouble(secondOperand);
+                        break;
+                    case "/":
+                        result = Double.parseDouble(firstOperand) / Double.parseDouble(secondOperand);
+                        break;
+                }
+
+                // Check if the result is a whole number
+                if (result == (int) result) {
+                    Output.setText(String.valueOf((int) result));
+                } else {
+                    Output.setText(String.valueOf(result));
+                }
+
+                firstOperand = "";
+                operator = "";
+            }
+        });
     }
+
     public static void main(String[] args) {
         new Calculator();
     }
