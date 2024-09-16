@@ -43,7 +43,12 @@ public class Calculator extends JFrame {
             button.addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent e) {
-                    Output.setText(Output.getText() + button.getText());
+                    if (Output.getText().equals("0")) {
+                        System.out.print("test");
+                        Output.setText(button.getText());
+                    } else {
+                        Output.setText(Output.getText() + button.getText());
+                    }
                 }
             });
         }

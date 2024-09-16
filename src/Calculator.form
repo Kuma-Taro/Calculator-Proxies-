@@ -176,6 +176,7 @@
           <foreground color="-1"/>
           <horizontalAlignment value="4"/>
           <selectedTextColor color="-517"/>
+          <text value="0"/>
         </properties>
       </component>
       <component id="7ef72" class="javax.swing.JButton" binding="equal">
